@@ -15,6 +15,11 @@ enemies are basically particles too
 
 void istouched(){
 /////check to see if any of the enemies touch the player
+/////if so, end game
 }
 
 
+void isshot(){
+//////check if bullet touches enemy
+/////if so, kill
+}
