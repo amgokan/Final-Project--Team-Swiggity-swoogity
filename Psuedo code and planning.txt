@@ -7,3 +7,14 @@ player shoots with mouse
 	if mousepressed--->create particle
 		particle travels in a straight line
 		lifespan of 2ish seconds
+
+enemies are basically particles too
+	velocity=random mover (i have that code saved)
+	initial location is random
+
+
+void istouched(){
+/////check to see if any of the enemies touch the player
+}
+
+
