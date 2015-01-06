@@ -1,1 +1,9 @@
 Psuedo-Code/planning
+
+Player sprite-moves with arrow keys
+	if bottonpressed--->move
+player shoots with mouse
+	aiming circle=mouse location
+	if mousepressed--->create particle
+		particle travels in a straight line
+		lifespan of 2ish seconds
