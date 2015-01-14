@@ -24,10 +24,11 @@ class Bullet {
   }
 
   void displaybullet() {
+    fill(random(255), random(255), random(255));
     ellipse(location.x, location.y, 10, 10);
   }
   
-  `
+  
 boolean isDead(){
  if (lifespan<0){
   return true;

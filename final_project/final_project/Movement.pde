@@ -13,7 +13,7 @@ void runmove() {
   updateloc();
   checkoffscreen();
 
-  fill(0);
+  fill(255,0,0);
   ellipse(ploc.x, ploc.y, diam, diam);
 }
 

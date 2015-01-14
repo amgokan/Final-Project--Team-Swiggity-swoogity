@@ -9,6 +9,7 @@ void shooting() {
 
 void aim() {
   heading = new PVector (ploc.x-mouseX, ploc.y-mouseY);
+  fill(0,255,0);
   ellipse(mouseX, mouseY, 12, 12); 
   heading.normalize();
   heading.mult(200);
