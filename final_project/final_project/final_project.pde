@@ -11,41 +11,63 @@ int shotdelay=3;     //sets the amount of frames berween shots
 
 ArrayList<Bullet> bullets;
 
+ArrayList<Stanko> stankos;
+//ArrayList<Gerstein> gersteins;
+//ArrayList<Sanservino> sanservinos;
+//ArrayList<DrJ> DrJs;
+//ArrayList<Esposito> espositos;
 
 int timer=0;
 
 void setup() {
   size(bwidth, bheight);
   bullets = new ArrayList<Bullet>();
+  stankos = new ArrayList <Stanko>();
+  for (int i =0; i<50; i++) {
+    stankos.add(new Stanko());
+  }
 }
 
 void draw() {
-  println("ShotTimer: " + shottimer + ", ShotDelay: " + shotdelay);
-  println("Number of Bullets: " + bullets.size()); 
+
+  //  println("ShotTimer: " + shottimer + ", ShotDelay: " + shotdelay);
+  //  println("Number of Bullets: " + bullets.size()); 
   timer++;
   fill(0);
   shottimer++;
   background(255);
   displayUI();
-
+  /////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////
   for (int i = 0; i < bullets.size (); i++) {            
     Bullet b = bullets.get(i);  
     b.runbullet();
-     if (b.isDead()) {                                        //check if its dead
+    if (b.isDead()) {                                        //check if its dead
       println("dead");
       bullets.remove(i);                                  //remove dead particle
     }
   }
   if (mousePressed) {
     if (shottimer>shotdelay) {
-      //      println("fffff");
-
-
       bullets.add(new Bullet(new PVector(width/2, height/2)));        
       shottimer=0;
     }
   }
+  ///////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////
 
+
+  ////////////////////////////////////////////////////////
+  //////////////Stanko Code///////////////////////////////
+  ////////////////////////////////////////////////////////
+  for (int i =0; i<stankos.size (); i++) {
+
+    Stanko s= stankos.get(i);
+    println(s.locstanko.x, s.locstanko.y);
+    s.runstanko();
+  }
+  //////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////
 
 
 
