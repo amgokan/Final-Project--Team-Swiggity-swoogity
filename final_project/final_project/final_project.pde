@@ -43,7 +43,7 @@ void draw() {
     Bullet b = bullets.get(i);  
     b.runbullet();
     if (b.isDead()) {                                        //check if its dead
-      println("dead");
+//      println("dead");
       bullets.remove(i);                                  //remove dead particle
     }
   }
@@ -63,7 +63,7 @@ void draw() {
   for (int i =0; i<stankos.size (); i++) {
 
     Stanko s= stankos.get(i);
-    println(s.locstanko.x, s.locstanko.y);
+//    println(s.locstanko.x, s.locstanko.y);
     s.runstanko();
   }
   //////////////////////////////////////////////////////////
