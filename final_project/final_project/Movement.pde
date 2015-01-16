@@ -14,7 +14,7 @@ void runmove() {
   checkoffscreen();
 
   fill(255,0,0);
-  ellipse(ploc.x, ploc.y, diam, diam);
+  ellipse(ploc.x, ploc.y, playerdiam, playerdiam);
 }
 
 
@@ -60,21 +60,21 @@ void updateloc() {
 }
 
 void checkoffscreen() {
-  if (ploc.x>(fieldwidth+((width-fieldwidth)/2)-(diam/2)) ) {
+  if (ploc.x>(fieldwidth+((width-fieldwidth)/2)-(playerdiam/2)) ) {
     pacc.x=0;
     ploc.x=ploc.x-9;
   }
-  if (ploc.x<((width-fieldwidth)/2)+diam/2) {
+  if (ploc.x<((width-fieldwidth)/2)+playerdiam/2) {
     pacc.x=0;
     ploc.x=ploc.x+9;
   }
 
-  if (ploc.y>fieldheight+((height-fieldheight)/2)-diam/2 ) {
+  if (ploc.y>fieldheight+((height-fieldheight)/2)-playerdiam/2 ) {
     pacc.y=0; 
     ploc.y=ploc.y-9;
   }
 
-  if (ploc.y<((height-fieldheight)/2)+diam/2) {
+  if (ploc.y<((height-fieldheight)/2)+playerdiam/2) {
     pacc.y=0;
     ploc.y=ploc.y+9;
   }

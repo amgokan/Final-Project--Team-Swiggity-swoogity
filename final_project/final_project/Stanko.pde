@@ -13,16 +13,22 @@ class Stanko {
   }
 
   void runstanko() {
+    if (playerdead){
+      //do nothing
+    }
+    else{
     displaystanko();
     acceleratestanko();
     movestanko();
     gotootherside();
     checkdeadstankos();
+    checkhitstankos();
+    }
   }
 
   void displaystanko() {
     fill(0, 0, 255);
-    ellipse(locstanko.x, locstanko.y, 20, 20);
+    ellipse(locstanko.x, locstanko.y, enemydiam, enemydiam);
   }
 
   void acceleratestanko() {
@@ -50,23 +56,32 @@ class Stanko {
       locstanko.y=749;
     }
   }
-  
-  void checkdeadstankos(){
-   for (int i=0; i<stankos.size(); i++){
-    for (int j=0; j<bullets.size(); j++){
-      Stanko s =stankos.get(i);
-      Bullet b =bullets.get(j);
-      
-      if (s.locstanko.dist(b.location)<20){
-       bullets.remove(j);
-       lifestanko-=1;
 
-         stankos.remove(i);
-      stankos.add(new Stanko()); 
+  void checkhitstankos() {
+    for (int i=0; i<stankos.size (); i++) {
+      for (int j=0; j<bullets.size (); j++) {
+        Stanko s =stankos.get(i);
+        Bullet b =bullets.get(j);
+
+        if (s.locstanko.dist(b.location)<20) {
+          bullets.remove(j);
+          println("hiiiiiiiiiiiiiit");
+          s.lifestanko-=1;
+          hitcount++;
+        }
       }
     }
-   } 
   }
-  
+  void checkdeadstankos() {
+    for (int i=0; i<stankos.size (); i++) {
+      Stanko s =stankos.get(i);
+      if (s.lifestanko<=0) {
+        
+        println("kill"+hitcount);
+        stankos.remove(i);
+        stankos.add(new Stanko());
+      }
+    }
+  }
 }
 

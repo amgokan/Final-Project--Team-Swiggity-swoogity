@@ -6,3 +6,10 @@ void displayUI() {
   fill(0);
 }
 
+void showendUI(){
+  fill(0);
+ rect(0,0,width, height);
+ 
+  
+}
+

@@ -4,10 +4,15 @@ int bheight = 800;
 int fieldwidth = 1300;
 int fieldheight =700;
 
-int diam = 20;
+int playerdiam = 20;
+int enemydiam = 20;
 
 int shottimer=0;
 int shotdelay=3;     //sets the amount of frames berween shots
+
+int hitcount=0;
+int killcount=0;
+
 
 ArrayList<Bullet> bullets;
 
@@ -32,11 +37,16 @@ void draw() {
 
   //  println("ShotTimer: " + shottimer + ", ShotDelay: " + shotdelay);
   //  println("Number of Bullets: " + bullets.size()); 
+ 
+
+ 
   timer++;
   fill(0);
   shottimer++;
   background(255);
+  playerdead();
   displayUI();
+ // println(hitcount);
   /////////////////////////////////////////////////////
   /////////////////////////////////////////////////////
   for (int i = 0; i < bullets.size (); i++) {            
@@ -74,5 +84,9 @@ void draw() {
 
   runmove();
   shooting();
+  println(playerdead);
+if (playerdead){
+ 
+}
 }
 
