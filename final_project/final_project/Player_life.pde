@@ -3,6 +3,7 @@ boolean playerdead;
 void playerdead() {
  stankokills();
  gersteinkills();
+ sansykills();
 }
 
 void stankokills(){
@@ -26,5 +27,18 @@ void gersteinkills(){
       showendUI();
       playerdead=true;
     }
+  }}
+  
+  void sansykills(){
+    for (int i=0; i<sansys.size(); i++){
+     Sansy s =sansys.get(i);
+    if (ploc.dist(s.locsansy)<(enemydiam+playerdiam-20)){
+     sansys.remove(i);
+     playerdead=true;
+     showendUI();
+     playerdead=true;
+    } 
+    }
+    
   }
-}
+

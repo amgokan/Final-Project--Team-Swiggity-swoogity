@@ -27,13 +27,5 @@ void waitbetweenshots() {
 void project() {
 }
 
-void mouseClicked() {
-  //  if (mousePressed) {
-  //    if (shottimer>shotdelay) {
-  //      println("fffff");
-  //      shottimer=0;
-  //      shoot();
-  //    }
-  //  }
-}
+
 

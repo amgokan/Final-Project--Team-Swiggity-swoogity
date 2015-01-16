@@ -6,7 +6,7 @@ class Bullet {
   int diam;
 
   Bullet (PVector l) {
-    velocity = PVector.fromAngle(heading.heading()+PI);
+    velocity = PVector.fromAngle(heading.heading()+PI+random(-.05,.05));
     velocity.mult(30);
     location = new PVector (ploc.x, ploc.y);
     lifespan=50;
@@ -15,7 +15,7 @@ class Bullet {
   void runbullet() {
     updatebullet();
     displaybullet();
-    //      println("GGG");
+
   }
 
   void updatebullet() {

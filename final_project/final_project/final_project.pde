@@ -8,7 +8,7 @@ int playerdiam = 20;
 int enemydiam = 20;
 
 int shottimer=0;
-int shotdelay=3;     //sets the amount of frames berween shots
+int shotdelay=0;     //sets the amount of frames berween shots
 
 int hitcount=0;
 int killcount=0;
@@ -18,7 +18,7 @@ ArrayList<Bullet> bullets;
 
 ArrayList<Stanko> stankos;
 ArrayList<Gerstein> gersteins;
-//ArrayList<Sanservino> sanservinos;
+ArrayList<Sansy> sansys;
 //ArrayList<DrJ> DrJs;
 //ArrayList<Esposito> espositos;
 
@@ -29,18 +29,21 @@ void setup() {
   bullets = new ArrayList<Bullet>();
   stankos = new ArrayList <Stanko>();
   gersteins = new ArrayList <Gerstein>();
+  sansys=new ArrayList <Sansy>();
   for (int i =0; i<30; i++) {
     stankos.add(new Stanko());
   }
- for (int i =0; i<10; i++) {
+ for (int i =0; i<20; i++) {
   gersteins.add(new Gerstein()); 
+ }
+ for (int i=0; i<10; i++){
+  sansys.add(new Sansy()); 
  }
 }
 
 void draw() {
 
-  //  println("ShotTimer: " + shottimer + ", ShotDelay: " + shotdelay);
-  //  println("Number of Bullets: " + bullets.size()); 
+
 
 
 
@@ -50,14 +53,14 @@ void draw() {
   background(255);
   playerdead();
   displayUI();
-  // println(hitcount);
+ 
   /////////////////////////////////////////////////////
   /////////////////////////////////////////////////////
   for (int i = 0; i < bullets.size (); i++) {            
     Bullet b = bullets.get(i);  
     b.runbullet();
     if (b.isDead()) {                                        //check if its dead
-      //      println("dead");
+
       bullets.remove(i);                                  //remove dead particle
     }
   }
@@ -74,26 +77,40 @@ void draw() {
   ////////////////////////////////////////////////////////
   //////////////Stanko Code///////////////////////////////
   ////////////////////////////////////////////////////////
-  for (int i =0; i<stankos.size (); i++) {
-
-    Stanko s= stankos.get(i);
-    //    println(s.locstanko.x, s.locstanko.y);
-    s.runstanko();
-  }
+//  for (int i =0; i<stankos.size (); i++) {
+//
+//    Stanko s= stankos.get(i);
+//
+//    s.runstanko();
+//  }
   //////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////
   
     ////////////////////////////////////////////////////////
   //////////////Gerstein Code///////////////////////////////
+//  ////////////////////////////////////////////////////////
+//  for (int i =0; i<gersteins.size (); i++) {
+//
+//    Gerstein g= gersteins.get(i);
+//  
+//    g.rungerstein();
+//  }
+  //////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////
+  
+  
   ////////////////////////////////////////////////////////
-  for (int i =0; i<gersteins.size (); i++) {
+  //////////////Sanservino Code///////////////////////////////
+  ////////////////////////////////////////////////////////
+  for (int i =0; i<sansys.size (); i++) {
 
-    Gerstein g= gersteins.get(i);
-    //    println(s.locstanko.x, s.locstanko.y);
-    g.rungerstein();
+    Sansy s= sansys.get(i);
+
+    s.runsansy();
   }
   //////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////
+  
 
 
 
