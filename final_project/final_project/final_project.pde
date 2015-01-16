@@ -17,7 +17,7 @@ int killcount=0;
 ArrayList<Bullet> bullets;
 
 ArrayList<Stanko> stankos;
-//ArrayList<Gerstein> gersteins;
+ArrayList<Gerstein> gersteins;
 //ArrayList<Sanservino> sanservinos;
 //ArrayList<DrJ> DrJs;
 //ArrayList<Esposito> espositos;
@@ -28,32 +28,36 @@ void setup() {
   size(bwidth, bheight);
   bullets = new ArrayList<Bullet>();
   stankos = new ArrayList <Stanko>();
+  gersteins = new ArrayList <Gerstein>();
   for (int i =0; i<50; i++) {
     stankos.add(new Stanko());
   }
+ for (int i =0; i<30; i++) {
+  gersteins.add(new Gerstein()); 
+ }
 }
 
 void draw() {
 
   //  println("ShotTimer: " + shottimer + ", ShotDelay: " + shotdelay);
   //  println("Number of Bullets: " + bullets.size()); 
- 
 
- 
+
+
   timer++;
   fill(0);
   shottimer++;
   background(255);
   playerdead();
   displayUI();
- // println(hitcount);
+  // println(hitcount);
   /////////////////////////////////////////////////////
   /////////////////////////////////////////////////////
   for (int i = 0; i < bullets.size (); i++) {            
     Bullet b = bullets.get(i);  
     b.runbullet();
     if (b.isDead()) {                                        //check if its dead
-//      println("dead");
+      //      println("dead");
       bullets.remove(i);                                  //remove dead particle
     }
   }
@@ -73,8 +77,20 @@ void draw() {
   for (int i =0; i<stankos.size (); i++) {
 
     Stanko s= stankos.get(i);
-//    println(s.locstanko.x, s.locstanko.y);
+    //    println(s.locstanko.x, s.locstanko.y);
     s.runstanko();
+  }
+  //////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////
+  
+    ////////////////////////////////////////////////////////
+  //////////////Gerstein Code///////////////////////////////
+  ////////////////////////////////////////////////////////
+  for (int i =0; i<gersteins.size (); i++) {
+
+    Gerstein g= gersteins.get(i);
+    //    println(s.locstanko.x, s.locstanko.y);
+    g.rungerstein();
   }
   //////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////
@@ -85,8 +101,7 @@ void draw() {
   runmove();
   shooting();
   println(playerdead);
-if (playerdead){
- 
-}
+  if (playerdead) {
+  }
 }
 
