@@ -29,10 +29,10 @@ void setup() {
   bullets = new ArrayList<Bullet>();
   stankos = new ArrayList <Stanko>();
   gersteins = new ArrayList <Gerstein>();
-  for (int i =0; i<50; i++) {
+  for (int i =0; i<30; i++) {
     stankos.add(new Stanko());
   }
- for (int i =0; i<30; i++) {
+ for (int i =0; i<10; i++) {
   gersteins.add(new Gerstein()); 
  }
 }

@@ -4,7 +4,7 @@ class Gerstein {
   PVector locgerstein;
   PVector velgerstein;
   PVector accgerstein;
-  int lifegerstein =1;
+  int lifegerstein =2;
 
   Gerstein () {
     locgerstein = new PVector(random(50, 1350), random(50, 750));
