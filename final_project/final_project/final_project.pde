@@ -1,3 +1,5 @@
+PImage img;
+
 int bwidth = 1400;
 int bheight = 800;
 
@@ -27,6 +29,9 @@ ArrayList<Sansy> sansys;
 int timer=0;
 
 void setup() {
+  
+  img=loadimage("images.jpeg");
+  
   size(bwidth, bheight);
   bullets = new ArrayList<Bullet>();
   stankos = new ArrayList <Stanko>();

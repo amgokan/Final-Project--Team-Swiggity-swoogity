@@ -27,7 +27,7 @@ class Sansy {
 
   void displaysansy() {
     fill(150, 100, 20);
-    ellipse(locsansy.x, locsansy.y, enemydiam, enemydiam);
+    image(locsansy.x, locsansy.y, enemydiam, enemydiam);
   }
 
 
