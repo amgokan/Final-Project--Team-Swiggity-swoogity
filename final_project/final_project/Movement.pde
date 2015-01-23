@@ -1,4 +1,4 @@
-PVector ploc = new PVector (bwidth/2, bheight/2);
+PVector ploc = new PVector (0, bheight/2);
 PVector pacc = new PVector (0, 0);
 
 PVector left = new PVector (-5, 0);

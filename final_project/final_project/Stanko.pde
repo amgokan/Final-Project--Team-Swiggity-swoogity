@@ -38,7 +38,7 @@ class Stanko {
   void movestanko() {
     velstanko.add(accstanko);
     velstanko.normalize();
-    velstanko.mult(2);
+    velstanko.mult(1.8);
     locstanko.add(velstanko);
   }
 

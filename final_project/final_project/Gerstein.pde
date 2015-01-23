@@ -38,7 +38,7 @@ class Gerstein {
   void movegerstein() {
     velgerstein.add(accgerstein);
     velgerstein.normalize();
-    velgerstein.mult(2);
+    velgerstein.mult(1.8);
     locgerstein.add(velgerstein);
   }
 

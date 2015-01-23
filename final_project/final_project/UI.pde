@@ -4,6 +4,9 @@ void displayUI() {
   fill(255);
   rect((bwidth-fieldwidth)/2, (bheight-fieldheight)/2, fieldwidth, fieldheight); 
   fill(0);
+  fill(170,170,170);
+  ellipse(50,bheight/2,100,100);
+  ellipse(bwidth-50, bheight/2, 100,100);
 }
 
 void showendUI(){
