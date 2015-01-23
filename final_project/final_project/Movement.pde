@@ -6,13 +6,16 @@ PVector right = new PVector (5, 0);
 PVector up = new PVector (0, -5);
 PVector down = new PVector (0, 5);
 
+
+int scorecounter=2;
 int timedelay = 10;    //frames between accepting moves
 
 void runmove() {
   keyPressed();
   updateloc();
   checkoffscreen();
-
+checkifleftgoal();
+  checkifrightgoal();
   fill(255,0,0);
   ellipse(ploc.x, ploc.y, playerdiam, playerdiam);
 }
@@ -77,6 +80,20 @@ void checkoffscreen() {
   if (ploc.y<((height-fieldheight)/2)+playerdiam/2) {
     pacc.y=0;
     ploc.y=ploc.y+9;
+  }
+}
+
+void checkifleftgoal(){
+ if (ploc.dist(goal1)<50 && scorecounter==2){
+ playerscore+=10;
+ scorecounter=1;
+ } 
+}
+
+void checkifrightgoal(){
+  if (ploc.dist(goal2)<50 && scorecounter==1){
+   playerscore+=10;
+  scorecounter=2; 
   }
 }
 

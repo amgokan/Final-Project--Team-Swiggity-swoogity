@@ -1,6 +1,8 @@
 int bwidth = 1400;
 int bheight = 800;
 
+int playerscore=0;
+
 int fieldwidth = 1300;
 int fieldheight =700;
 
@@ -43,8 +45,8 @@ void setup() {
 
 void draw() {
 
-
-
+//println(ploc.dist(goal1));
+println(playerscore);
 
 
   timer++;
@@ -117,7 +119,7 @@ void draw() {
 
   runmove();
   shooting();
-  println(playerdead);
+  
   if (playerdead) {
   }
 }
