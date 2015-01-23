@@ -14,9 +14,9 @@ void runmove() {
   keyPressed();
   updateloc();
   checkoffscreen();
-checkifleftgoal();
+  checkifleftgoal();
   checkifrightgoal();
-  fill(255,0,0);
+  fill(255, 0, 0);
   ellipse(ploc.x, ploc.y, playerdiam, playerdiam);
 }
 
@@ -83,17 +83,45 @@ void checkoffscreen() {
   }
 }
 
-void checkifleftgoal(){
- if (ploc.dist(goal1)<50 && scorecounter==2){
- playerscore+=10;
- scorecounter=1;
- } 
+void checkifleftgoal() {
+  if (ploc.dist(goal1)<50 && scorecounter==2) {
+
+    for (int i =0; i<8; i++) {
+      stankos.add(new Stanko());
+    }
+
+    for (int i =0; i<5; i++) {
+      gersteins.add(new Gerstein());
+    }
+
+    if (playerscore%10==0) {
+
+      sansys.add(new Sansy());
+    }
+
+    playerscore+=5;
+    scorecounter=1;
+  }
 }
 
-void checkifrightgoal(){
-  if (ploc.dist(goal2)<50 && scorecounter==1){
-   playerscore+=10;
-  scorecounter=2; 
+void checkifrightgoal() {
+  if (ploc.dist(goal2)<50 && scorecounter==1) {
+    
+     for (int i =0; i<8; i++) {
+      stankos.add(new Stanko());
+    }
+
+    for (int i =0; i<5; i++) {
+      gersteins.add(new Gerstein());
+    }
+
+    if (playerscore%10==0) {
+
+      sansys.add(new Sansy());
+    }
+    
+    playerscore+=5;
+    scorecounter=2;
   }
 }
 

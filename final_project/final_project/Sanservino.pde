@@ -5,12 +5,14 @@ class Sansy {
   PVector t=new PVector(random(1000), random(1000));
 
   int lifesansy =7;
+  int timealive=0;
 
   Sansy () {
     locsansy = new PVector(random(50, 1350), random(50, 750));
   }
 
   void runsansy() {
+    timealive++;
     if (playerdead) {
       //do nothing
     } else {
@@ -58,12 +60,12 @@ class Sansy {
   }
 
   void checkhitsansys() {
-    for (int i=0; i<sansys.size (); i++) {
+    for (int i=0; i<sansys.size(); i++) {
       for (int j=0; j<bullets.size (); j++) {
         Sansy s =sansys.get(i);
         Bullet b =bullets.get(j);
 
-        if (s.locsansy.dist(b.location)<20) {
+        if (s.locsansy.dist(b.location)<50 && timealive>10) {
           bullets.remove(j);
           println("hiiiiiiiiiiiiiit");
           s.lifesansy-=1;
@@ -73,7 +75,7 @@ class Sansy {
     }
   }
   void checkdeadsansys() {
-    for (int i=0; i<sansys.size (); i++) {
+    for (int i=0; i<sansys.size(); i++) {
       Sansy s =sansys.get(i);
       if (s.lifesansy<=0) {
 

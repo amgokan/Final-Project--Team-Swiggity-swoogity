@@ -32,13 +32,13 @@ void setup() {
   stankos = new ArrayList <Stanko>();
   gersteins = new ArrayList <Gerstein>();
   sansys=new ArrayList <Sansy>();
-  for (int i =0; i<30; i++) {
+  for (int i =0; i<8; i++) {
     stankos.add(new Stanko());
   }
- for (int i =0; i<20; i++) {
+ for (int i =0; i<5; i++) {
   gersteins.add(new Gerstein()); 
  }
- for (int i=0; i<10; i++){
+ for (int i=0; i<1; i++){
   sansys.add(new Sansy()); 
  }
 }
@@ -47,6 +47,8 @@ void draw() {
 
 //println(ploc.dist(goal1));
 println(playerscore);
+
+
 
 
   timer++;
@@ -79,7 +81,7 @@ println(playerscore);
   ////////////////////////////////////////////////////////
   //////////////Stanko Code///////////////////////////////
   ////////////////////////////////////////////////////////
-  for (int i =0; i<stankos.size (); i++) {
+  for (int i =0; i<stankos.size(); i++) {
 
     Stanko s= stankos.get(i);
 
@@ -91,7 +93,7 @@ println(playerscore);
     ////////////////////////////////////////////////////////
   //////////////Gerstein Code///////////////////////////////
 //  ////////////////////////////////////////////////////////
-  for (int i =0; i<gersteins.size (); i++) {
+  for (int i =0; i<gersteins.size(); i++) {
 
     Gerstein g= gersteins.get(i);
   
@@ -104,12 +106,12 @@ println(playerscore);
   ////////////////////////////////////////////////////////
   //////////////Sanservino Code///////////////////////////////
   ////////////////////////////////////////////////////////
-//  for (int i =0; i<sansys.size (); i++) {
-//
-//    Sansy s= sansys.get(i);
-//
-//    s.runsansy();
-//  }
+  for (int i =0; i<sansys.size(); i++) {
+
+    Sansy s= sansys.get(i);
+
+    s.runsansy();
+  }
   //////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////
   

@@ -5,6 +5,7 @@ class Stanko {
   PVector velstanko;
   PVector accstanko;
   int lifestanko =1;
+  int timealive=0;
 
   Stanko () {
     locstanko = new PVector(random(50, 1350), random(50, 750));
@@ -13,6 +14,7 @@ class Stanko {
   }
 
   void runstanko() {
+    timealive++;
     if (playerdead){
       //do nothing
     }
@@ -38,7 +40,7 @@ class Stanko {
   void movestanko() {
     velstanko.add(accstanko);
     velstanko.normalize();
-    velstanko.mult(1.8);
+    velstanko.mult(1);
     locstanko.add(velstanko);
   }
 
@@ -58,12 +60,12 @@ class Stanko {
   }
 
   void checkhitstankos() {
-    for (int i=0; i<stankos.size (); i++) {
+    for (int i=0; i<stankos.size(); i++) {
       for (int j=0; j<bullets.size (); j++) {
         Stanko s =stankos.get(i);
         Bullet b =bullets.get(j);
 
-        if (s.locstanko.dist(b.location)<20) {
+        if (s.locstanko.dist(b.location)<20 && timealive>10) {
           bullets.remove(j);
           println("hiiiiiiiiiiiiiit");
           s.lifestanko-=1;
@@ -73,9 +75,9 @@ class Stanko {
     }
   }
   void checkdeadstankos() {
-    for (int i=0; i<stankos.size (); i++) {
+    for (int i=0; i<stankos.size(); i++) {
       Stanko s =stankos.get(i);
-      if (s.lifestanko<=0) {
+      if (s.lifestanko<=0 && timealive>10) {
         
         println("kill"+hitcount);
         stankos.remove(i);

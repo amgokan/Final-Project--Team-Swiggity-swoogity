@@ -5,6 +5,7 @@ class Gerstein {
   PVector velgerstein;
   PVector accgerstein;
   int lifegerstein =2;
+  int timealive=0;
 
   Gerstein () {
     locgerstein = new PVector(random(50, 1350), random(50, 750));
@@ -13,6 +14,7 @@ class Gerstein {
   }
 
   void rungerstein() {
+timealive++;
     if (playerdead){
       //do nothing
     }
@@ -38,7 +40,7 @@ class Gerstein {
   void movegerstein() {
     velgerstein.add(accgerstein);
     velgerstein.normalize();
-    velgerstein.mult(1.8);
+    velgerstein.mult(1);
     locgerstein.add(velgerstein);
   }
 
@@ -58,12 +60,12 @@ class Gerstein {
   }
 
   void checkhitgersteins() {
-    for (int i=0; i<gersteins.size (); i++) {
+    for (int i=0; i<gersteins.size(); i++) {
       for (int j=0; j<bullets.size (); j++) {
         Gerstein s =gersteins.get(i);
         Bullet b =bullets.get(j);
 
-        if (s.locgerstein.dist(b.location)<20) {
+        if (s.locgerstein.dist(b.location)<20 && timealive>10) {
           bullets.remove(j);
           println("hiiiiiiiiiiiiiit");
           s.lifegerstein-=1;
@@ -73,9 +75,9 @@ class Gerstein {
     }
   }
   void checkdeadgersteins() {
-    for (int i=0; i<gersteins.size (); i++) {
+    for (int i=0; i<gersteins.size(); i++) {
       Gerstein s =gersteins.get(i);
-      if (s.lifegerstein<=0) {
+      if (s.lifegerstein<=0 && timealive>10) {
         
         println("kill"+hitcount);
         gersteins.remove(i);
